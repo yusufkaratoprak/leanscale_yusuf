@@ -3,8 +3,8 @@ provider "aws" {
   region  = "eu-west-2"
 }
 
-resource "aws_s3_bucket" "b2" {
-  bucket = "my-tf-test-bucket-leanscale-3"
+resource "aws_s3_bucket" "b" {
+  bucket = "my-tf-test-bucket-leanscale-2"
   acl    = "private"
 
   tags = {
@@ -13,7 +13,7 @@ resource "aws_s3_bucket" "b2" {
   }
 }
 
-data "aws_ami" "ubuntu2" {
+data "aws_ami" "ubuntu" {
   most_recent = true
 
   filter {
@@ -21,7 +21,7 @@ data "aws_ami" "ubuntu2" {
     values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
   }
 
-  filter {
+  filter {a
     name   = "virtualization-type"
     values = ["hvm"]
   }
@@ -30,11 +30,11 @@ data "aws_ami" "ubuntu2" {
 }
 
 
-resource "aws_instance" "web2" {
-  ami           = data.aws_ami.ubuntu2.id
+resource "aws_instance" "web" {
+  ami           = data.aws_ami.ubuntu.id
   instance_type = "t2.micro"
 
   tags = {
-    Name = "HelloWorld-leanscale-3"
+    Name = "HelloWorld-leanscale-2"
   }
 }
