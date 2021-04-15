@@ -4,7 +4,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "b" {
-  bucket = "my-tf-test-bucket-leanscale-2"
+  bucket = "my-tf-test-bucket-leanscale-3"
   acl    = "private"
 
   tags = {
@@ -35,6 +35,6 @@ resource "aws_instance" "web" {
   instance_type = "t2.micro"
 
   tags = {
-    Name = "HelloWorld-leanscale-2"
+    Name = "HelloWorld-leanscale-3"
   }
 }
