@@ -3,7 +3,7 @@ provider "aws" {
   region  = "eu-west-2"
 }
 
-resource "aws_s3_bucket" "b" {
+resource "aws_s3_bucket" "b1" {
   bucket = "my-tf-test-bucket-leanscale-2"
   acl    = "private"
 
@@ -13,7 +13,7 @@ resource "aws_s3_bucket" "b" {
   }
 }
 
-data "aws_ami" "ubuntu" {
+data "aws_ami" "ubuntu2" {
   most_recent = true
 
   filter {
@@ -30,7 +30,7 @@ data "aws_ami" "ubuntu" {
 }
 
 
-resource "aws_instance" "web" {
+resource "aws_instance" "web2" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t2.micro"
 
